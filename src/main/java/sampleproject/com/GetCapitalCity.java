@@ -16,6 +16,7 @@ import org.json.simple.parser.ParseException;
 
 public class GetCapitalCity {
 
+	//Reading inputs from console
 	public static void main(String[] args) throws ParseException {
 		String answer = "";
 		do {
@@ -28,16 +29,19 @@ public class GetCapitalCity {
 		} while (answer.equalsIgnoreCase("Y"));
 
 	}
-
+//Below method returns capital city e, alpha-2 code and alpha-3 code
 	public static String getCapitalCity(String input) throws ParseException {
 		String capitalCity = "";
 
 		try {
+			//Below is base URL
 			String baseUrl = "https://restcountries.eu/rest/v2/";
 
 			if (!input.isEmpty() && input != null && input.length() <= 3) {
+				//Endpoint to get capital city based on alpha code
 				baseUrl = baseUrl + "alpha/" + input;
 			} else {
+				//Endpoint to get capital city based on country name
 				baseUrl = baseUrl + "name/" + input;
 			}
 			System.out.println();
